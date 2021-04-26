@@ -6,6 +6,8 @@ import (
 )
 
 func Setup(app *fiber.App) {
-	app.Post("/register", controllers.Register)
-	app.Post("/login", controllers.Login)
+	app.Post("/api/register", controllers.Register)
+	app.Post("/api/login", controllers.Login)
+	app.Get("/api/user", controllers.User)
+	app.Get("/api/logout", controllers.Logout)
 }
