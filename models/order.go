@@ -41,7 +41,7 @@ func (order *Order) Take(db *gorm.DB, limit int, offset int) interface{} {
 			total += orderItem.Price * float32(orderItem.Quantity)
 		}
 		orders[i].Name = orders[i].FirstName + " " + orders[i].LastName
-		orders[i].Total = int(total)
+		orders[i].Total = total
 	}
 	return orders
 }
