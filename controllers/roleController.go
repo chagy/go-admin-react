@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"strconv"
-
 	"../database"
 	"../models"
 	"github.com/gofiber/fiber"
@@ -25,15 +24,20 @@ func CreateRole(c *fiber.Ctx) error {
 
 	list := roleDto["permissions"].([]interface{})
 
+	
+
+
 	permissions := make([]models.Permission, len(list))
+
 
 	for i, permissionId := range list {
 		id, _ := strconv.Atoi(permissionId.(string))
-
 		permissions[i] = models.Permission{
 			Id: uint(id),
 		}
 	}
+
+
 
 	role := models.Role{
 		Name:        roleDto["name"].(string),

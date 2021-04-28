@@ -92,7 +92,7 @@ func User(c *fiber.Ctx) error {
 
 	var user models.User
 
-	database.DB.Where("id = ?", id).First(&user)
+	database.DB.Preload("Role").Where("id = ?", id).First(&user)
 
 	return c.JSON(user)
 }
